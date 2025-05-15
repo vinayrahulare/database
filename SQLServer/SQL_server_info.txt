@@ -1,0 +1,43 @@
+--short version
+SELECT     CONVERT(char(100), SERVERPROPERTY('Servername')) AS Server,
+                      CONVERT(char(100), SERVERPROPERTY('ProductVersion')) AS ProductVersion, CONVERT(char(100), SERVERPROPERTY('ProductLevel')) 
+                      AS ProductLevel,  
+                      CASE WHEN SERVERPROPERTY('EngineEdition') = 1 THEN 'Personal Edition' WHEN SERVERPROPERTY('EngineEdition') 
+                      = 2 THEN 'Standard Edition' WHEN SERVERPROPERTY('EngineEdition') = 3 THEN 'Enterprise Edition' WHEN SERVERPROPERTY('EngineEdition') 
+                      = 4 THEN 'Express Edition' END AS EngineEdition
+Order by
+ CONVERT(char(100), SERVERPROPERTY('Servername'))
+
+--Full version
+
+SELECT     CONVERT(char(100), SERVERPROPERTY('Servername')) AS Server,
+                      CONVERT(char(100), SERVERPROPERTY('ProductVersion')) AS ProductVersion, CONVERT(char(100), SERVERPROPERTY('ProductLevel')) 
+                      AS ProductLevel, CONVERT(char(100), SERVERPROPERTY('ResourceLastUpdateDateTime')) AS ResourceLastUpdateDateTime, CONVERT(char(100), 
+                      SERVERPROPERTY('ResourceVersion')) AS ResourceVersion, CASE WHEN SERVERPROPERTY('EngineEdition') 
+                      = 1 THEN 'Integrated security' WHEN SERVERPROPERTY('EngineEdition') = 2 THEN 'Not Integrated security' END AS IsIntegratedSecurityOnly, 
+                      CASE WHEN SERVERPROPERTY('EngineEdition') = 1 THEN 'Personal Edition' WHEN SERVERPROPERTY('EngineEdition') 
+                      = 2 THEN 'Standard Edition' WHEN SERVERPROPERTY('EngineEdition') = 3 THEN 'Enterprise Edition' WHEN SERVERPROPERTY('EngineEdition') 
+                      = 4 THEN 'Express Edition' END AS EngineEdition, CONVERT(char(100), SERVERPROPERTY('InstanceName')) AS InstanceName, CONVERT(char(100), 
+                      SERVERPROPERTY('ComputerNamePhysicalNetBIOS')) AS ComputerNamePhysicalNetBIOS, CONVERT(char(100), SERVERPROPERTY('LicenseType')) 
+                      AS LicenseType, CONVERT(char(100), SERVERPROPERTY('NumLicenses')) AS NumLicenses, CONVERT(char(100), 
+                      SERVERPROPERTY('BuildClrVersion')) AS BuildClrVersion, CONVERT(char(100), SERVERPROPERTY('Collation')) AS Collation, CONVERT(char(100), 
+                      SERVERPROPERTY('CollationID')) AS CollationID, CONVERT(char(100), SERVERPROPERTY('ComparisonStyle')) AS ComparisonStyle, 
+                      CASE WHEN CONVERT(char(100), SERVERPROPERTY('EngineID')) = - 1253826760 THEN 'Desktop Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = - 1592396055 THEN 'Express Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = - 1534726760 THEN 'Standard Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = 1333529388 THEN 'Workgroup Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = 1804890536 THEN 'Enterprise Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = - 323382091 THEN 'Personal Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = - 2117995310 THEN 'Developer Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = 610778273 THEN 'Enterprise Evaluation Edition' WHEN SERVERPROPERTY('EngineID') 
+                      = 1044790755 THEN 'Windows Embedded SQL' WHEN SERVERPROPERTY('EngineID') 
+                      = 4161255391 THEN 'Express Edition with Advanced Services' END AS ProductEdition, CASE WHEN CONVERT(char(100), 
+                      SERVERPROPERTY('IsClustered')) = 1 THEN 'Clustered' WHEN SERVERPROPERTY('IsClustered') 
+                      = 0 THEN 'Not Clustered' WHEN SERVERPROPERTY('IsClustered') = NULL THEN 'Error' END AS IsClustered, CASE WHEN CONVERT(char(100), 
+                      SERVERPROPERTY('IsFullTextInstalled')) = 1 THEN 'Full-text is installed' WHEN SERVERPROPERTY('IsFullTextInstalled') 
+                      = 0 THEN 'Full-text is not installed' WHEN SERVERPROPERTY('IsFullTextInstalled') = NULL THEN 'Error' END AS IsFullTextInstalled, 
+                      CONVERT(char(100), SERVERPROPERTY('SqlCharSet')) AS SqlCharSet, CONVERT(char(100), SERVERPROPERTY('SqlCharSetName')) 
+                      AS SqlCharSetName, CONVERT(char(100), SERVERPROPERTY('SqlSortOrder')) AS SqlSortOrderID, CONVERT(char(100), 
+                      SERVERPROPERTY('SqlSortOrderName')) AS SqlSortOrderName
+Order by
+ CONVERT(char(100), SERVERPROPERTY('Servername'))

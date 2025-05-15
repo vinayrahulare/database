@@ -1,0 +1,18 @@
+EXEC sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+
+EXEC sp_configure 'xp_cmdshell',1
+GO
+RECONFIGURE
+GO
+
+EXEC XP_CMDSHELL 'net use Y: \\10.0.1.36\SQLBackup <password> /USER:HRT\vare /PERSISTENT:yes'
+
+EXEC XP_CMDSHELL 'Dir Y:' 
+
+
+-- USE the following command to delete the mapping after
+--EXEC XP_CMDSHELL 'net use Y: /delete' 
+

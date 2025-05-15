@@ -1,0 +1,18 @@
+SELECT db_name(database_id) AS [Database Name],
+	dek.key_length as [Key Length],
+	case encryption_state when '0' then 'No database encryption key present, no encryption'
+	when '1' then 'Not Encrypted' 
+	when '2' then 'Encryption in Progress'
+	when '3' then 'Encrypted'
+	when '4' then 'Key Change in Progress'
+	when '5' then 'Decryption in Progress'
+	when '6' then 'Protection Change in Progress'
+	end as [Encryption Status] ,
+	key_algorithm as [Key Algorithm],
+	Name as [Cert Name],
+	pvt_key_encryption_type_desc as [Pvt Key Desc],
+	[subject] as [Subject],
+	[expiry_date] as [Expiry Date],
+	[start_date] as [Start Date]
+FROM sys.certificates c
+INNER JOIN sys.dm_database_encryption_keys dek ON c.thumbprint = dek.encryptor_thumbprint

@@ -1,0 +1,15 @@
+EXEC sp_resetstatus 'BestDoctorsServices';
+ALTER DATABASE BestDoctorsServices SET EMERGENCY
+
+DBCC CHECKDB ('BestDoctorsServices')
+
+ALTER DATABASE [BestDoctorsServices] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+
+Backup database BestDoctorsServices
+to disk = '\\BDDC1BTS02\SQLBackup\BDDC1SQL3\BestDoctorsServices_prod_05142020.bak'
+with init,copy_only,compression,stats=5
+
+ALTER DATABASE [BestDoctorsServices] SET MULTI_USER
+
+ALTER DATABASE BestDoctorsServices SET ONLINE
+
