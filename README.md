@@ -1,145 +1,102 @@
-# Welcome to the Database Repository!
+# Database Management Scripts Repository
 
-This repository contains a comprehensive collection of tools, scripts, and documentation for managing various database platforms.
-
-## Table of Contents
-- [About](#about)
-- [Repository Structure](#repository-structure)
-- [Database Platforms](#database-platforms)
-- [General Administration](#general-administration)
-- [Documentation](#documentation)
-- [Languages Used](#languages-used)
-- [Setup and Usage](#setup-and-usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## About
-
-This repository contains a collection of scripts and tools tailored for database engineering and operations. These scripts are designed to optimize, maintain, and manage database infrastructure across multiple platforms.
+This repository contains a collection of database management scripts and tools for various database platforms, focusing on administration, monitoring, and maintenance tasks.
 
 ## Repository Structure
 
 The repository is organized into the following main sections:
 
 ### Database Platforms
-- [Redshift](./Redshift/README.md) - Amazon Redshift management scripts
-- [SQLServer](./SQLServer/README.md) - Microsoft SQL Server administration tools
-- [PostgreSQL](./PostgreSQL/README.md) - PostgreSQL database management
-- [MySQL](./MySQL/README.md) - MySQL database administration
-- [Aurora](./Aurora/README.md) - Amazon Aurora management
-- [Azure](./Azure/README.md) - Azure SQL and related services
+- [MySQL](./MySQL/README.md) - MySQL database administration scripts
+- [PostgreSQL](./PostgreSQL/README.md) - PostgreSQL database management tools
+- [Aurora](./Aurora/README.md) - Amazon Aurora management scripts
+- [Redshift](./Redshift/README.md) - Amazon Redshift management tools
+- [SQLServer](./SQLServer/README.md) - Microsoft SQL Server administration scripts
 
-### General Administration
-- [GeneralAdmin](./GeneralAdmin/README.md) - Cross-platform database administration tools
-- [SQL Scripts](./SQL%20Scripts/README.md) - Generic SQL scripts and utilities
-- [Datasunrise](./Datasunrise/README.md) - Database security and monitoring tools
+### Scripts
+- [Scripts](./Scripts/) - General database management scripts
 
-### Documentation
-- [ERDs And DDLs](./ERDs%20And%20DDLs/README.md) - Entity Relationship Diagrams and Data Definition Language scripts
+## Platform-Specific Tools
 
-## Database Platforms
+### MySQL
+The MySQL directory contains scripts for:
+- Lock monitoring and management
+  - `locked.sql` - View currently locked tables
+  - `locking.sql` - Monitor locking operations
+  - `locks_on_a_table.sql` - Check locks on specific tables
+  - `transactions_waiting.sql` - Monitor waiting transactions
 
-Each database platform directory contains platform-specific scripts and tools:
+### PostgreSQL
+The PostgreSQL directory includes:
+- Database maintenance scripts
+  - `vacuum_analyze_schema.sh` - Perform VACUUM ANALYZE operations
+  - `terminate_long_running_queries.sh` - Manage long-running queries
 
-1. **Redshift**
-   - User management scripts
-   - Permission management
-   - Performance monitoring
+### Aurora
+Amazon Aurora management scripts for:
+- Cluster management
+- Performance monitoring
+- Backup and recovery
 
-2. **SQLServer**
-   - Performance tuning scripts
-   - High availability setup
-   - Security management
-   - Backup and recovery
+### Redshift
+Amazon Redshift tools for:
+- Data warehouse management
+- Performance optimization
+- User and permission management
 
-3. **PostgreSQL**
-   - Database administration
-   - Performance optimization
-   - Replication management
+### SQLServer
+Microsoft SQL Server administration scripts for:
+- Database maintenance
+- Performance tuning
+- Security management
 
-4. **MySQL**
-   - Database maintenance
-   - Performance monitoring
-   - Backup strategies
-
-5. **Aurora**
-   - Cluster management
-   - Performance optimization
-   - Backup and recovery
-
-6. **Azure**
-   - Azure SQL management
-   - Cloud-specific tools
-   - Integration scripts
-
-## General Administration
-
-The general administration section contains tools and scripts that can be used across multiple database platforms:
-
-1. **GeneralAdmin**
-   - Cross-platform utilities
-   - Common administration tasks
-   - Monitoring tools
-
-2. **SQL Scripts**
-   - Generic SQL utilities
-   - Common queries
-   - Performance monitoring
-
-3. **Datasunrise**
-   - Security tools
-   - Monitoring solutions
-   - Access control
-
-## Documentation
-
-The documentation section contains important design and implementation details:
-
-1. **ERDs And DDLs**
-   - Database schemas
-   - Table definitions
-   - Relationship diagrams
-
-## Languages Used
-
-Here's the language composition of this repository:
-
-- **Perl**: 42.7%
-- **Shell**: 22.6%
-- **HTML**: 19%
-- **PLpgSQL**: 11.6%
-- **Python**: 1.4%
-- **C#**: 1.3%
-- **Other**: 1.4%
+## General Scripts
+The Scripts directory contains cross-platform database management tools and utilities.
 
 ## Setup and Usage
 
-**Clone the repository:**
+1. Clone the repository:
 ```bash
 git clone https://github.com/vinayrahulare/database.git
 ```
 
-**Navigate to the repository folder:**
+2. Navigate to the repository:
 ```bash
 cd database
 ```
 
-Each directory contains its own README.md with specific setup instructions and usage guidelines. Please refer to the respective README files for detailed information.
+3. Each platform directory contains its own README.md with specific setup instructions and usage guidelines.
 
-> **Note**: Ensure you have the required dependencies installed for each script. For example:
-> - Perl: Install relevant Perl modules
-> - Shell: Ensure compatibility with your shell environment
-> - Python: Install required Python packages
-> - SQL: Ensure proper database client tools are installed
+## Prerequisites
+
+- Database client tools for respective platforms
+- Shell environment (bash/zsh)
+- Appropriate database credentials and permissions
+- AWS CLI (for AWS-related scripts)
 
 ## Contributing
 
-Contributions are welcome! To contribute:
+Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create a new branch for your feature or bugfix:
+2. Create a feature branch:
    ```bash
    git checkout -b feature-name
    ```
-3. Commit your changes and push them to your fork
-4. Create a pull request to the main repository
+3. Commit your changes
+4. Push to your fork
+5. Create a pull request
+
+## License
+
+This project is licensed under the terms of the included LICENSE file.
+
+## Security
+
+- Never commit sensitive information like passwords or API keys
+- Use environment variables or secure credential management
+- Follow the principle of least privilege when setting up database access
+
+## Support
+
+For issues and feature requests, please create an issue in the GitHub repository.
